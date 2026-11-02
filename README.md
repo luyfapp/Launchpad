@@ -45,6 +45,7 @@
 ## 下载
 
 - 下载页：<https://download.luyfapp.cn>
+- GitHub Releases：<https://github.com/luyfapp/Launchpad/releases/tag/v2.2-build41>
 - 最新 DMG：<https://download.luyfapp.cn/Launchpad-2.2-build41.dmg>
 
 ## 安装
