@@ -80,10 +80,11 @@
 ## 支持
 
 - 邮箱：386701036@qq.com
+- GitHub：https://github.com/luyfapp
 - 问题反馈请附：macOS 版本、App build、复现步骤、截图/录屏。
 
 ## 版权
 
-Copyright © 2026 luyf75. All rights reserved.
+Copyright © 2026 luyfapp. All rights reserved.
 
 本仓库仅用于产品介绍、下载与问题反馈，不包含源代码。Apple、macOS、Launchpad 是 Apple Inc. 的商标；本项目与 Apple 无关联。
