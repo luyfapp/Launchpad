@@ -328,3 +328,6 @@ https://download.luyfapp.cn/update.json
 MIT。App 图标与自定义玻璃界面由项目自行绘制，SF Symbols 由系统提供；不使用 Apple 的 Launchpad 图标资源。应用列表中显示的是本机已安装应用的系统图标。
 
 Apple、macOS、Launchpad 是 Apple Inc. 的商标。本项目与 Apple 无关联。
+
+
+> **build 46 已撤回**：未通过真实触控板验证，已恢复 build 45。pager 重做代码保存在 `pager-rewrite` 分支，验证通过前不发布。
