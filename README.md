@@ -1,6 +1,6 @@
 # 启动台 · Launchpad for macOS 26（Beta）
 
-> 当前最新：**2.2 build 46**
+> 当前最新：**2.2 build 47**
 
 一个独立实现的 macOS 启动台（Launchpad）应用。AppKit + SwiftUI 编写，适配 **macOS 26.0 及以上**。
 
@@ -45,8 +45,8 @@
 ## 下载
 
 - 下载页：<https://download.luyfapp.cn>
-- GitHub Releases：<https://github.com/luyfapp/Launchpad/releases/tag/v2.2-build46>
-- 最新 DMG：<https://download.luyfapp.cn/Launchpad-2.2-build46.dmg>
+- GitHub Releases：<https://github.com/luyfapp/Launchpad/releases/tag/v2.2-build47>
+- 最新 DMG：<https://download.luyfapp.cn/Launchpad-latest.dmg>
 
 ## 安装
 
