@@ -2,7 +2,7 @@
 
 一个独立实现的 macOS 启动台（Launchpad）应用。用 AppKit + SwiftUI 编写，无第三方运行时依赖，最低支持 **macOS 15.0**，同一构建同时支持 macOS 15/26/27。
 
-> **当前版本：2.2（build 46，2026-11-03）**  
+> **当前版本：2.2（build 45，2026-11-03）**  
 > 视觉和交互参考经典 Launchpad（macOS Sequoia / Tahoe 时代）。本版重点：进入退出旋转动画、翻页百叶窗、双指离散翻页、双槽 60fps 分页、无阴影扁平图标、桌面壁纸毛玻璃、文件夹放大/缩小开关动画、隐藏菜单栏图标、帮助与系统手势冲突提示、虚拟机/无触控板时的快捷键提示，以及四指捏合的 7 天试用/卡密激活/付费墙。
 
 ![启动台](docs/screenshots/01-launchpad.jpg)
@@ -50,11 +50,10 @@
 
 ## 当前版本与更新记录
 
-当前：**2.2 build 46**（2026-11-03，macOS 15+）。build 45 已冻结；build 46 重做 pager 交互层。此前旧 45–56 迭代已废弃。
+当前：**2.2 build 45**（2026-11-03，macOS 15+）。build 44 维护版为上一版；此前旧 45–56 迭代已废弃，本 45 为全屏自适应重做版。
 
 | 构建 | 主要变化 |
 | --- | --- |
-| build 46 | pager 重做：双指滚动按增量实时移动当前页/相邻页，松手按 16% 位移吸附；不再过阈值直接跳页。保留 build 45 的全屏自适应。SHA-256 `17620363…`，CDHash `f9658b46…` |
 | build 45 | 全屏幕类型自适应：按屏幕点数与横竖屏自动选择 6–10 列、4–8 行；1440p/4K/超宽屏填满垂直空间并放大图标；翻页触发阈值 10、spring 0.30；macOS 15+。SHA-256 `5c4e6760…`，CDHash `dd47d52e…` |
 | build 44 维护版 | 当前发布线：macOS 15.0 最低系统；动态壁纸 `com.apple.wallpaper.choice.sonoma` 正确映射到系统 HEIC；壁纸模糊源进一步降到 0.10× 并加大模糊半径；隐藏启动台后销毁全屏 hosting view，闲置约 70–90MB；统一应用启动/前台激活（DeepSeek、极空间、已运行应用）；恢复原菜单与原界面。SHA-256 `09e04d7a…`，CDHash `2f38c216…`；1440p 网格改为填满垂直空间、图标 128pt，翻页触发阈值降低 |
 | build 41 | 启用 CDHash 白名单 + 一次性 nonce attestation：所有 build 的试用/激活/续租必须先向 `/v1/attest/challenge` 取 nonce；Worker 新增 `build_attestations`、`attest_nonces` 与管理员注册接口；编译脚本增加 `__RESTRICT`/Hardened Runtime/entitlement 强制校验，后续构建自动检查 |
