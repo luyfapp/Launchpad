@@ -54,7 +54,7 @@
 
 | 构建 | 主要变化 |
 | --- | --- |
-| build 44 维护版 | 当前发布线：macOS 15.0 最低系统；动态壁纸 `com.apple.wallpaper.choice.sonoma` 正确映射到系统 HEIC；壁纸模糊源进一步降到 0.10× 并加大模糊半径；隐藏启动台后销毁全屏 hosting view，闲置约 70–90MB；统一应用启动/前台激活（DeepSeek、极空间、已运行应用）；恢复原菜单与原界面。SHA-256 `1393415e…`，CDHash `bc7bec12…` |
+| build 44 维护版 | 当前发布线：macOS 15.0 最低系统；动态壁纸 `com.apple.wallpaper.choice.sonoma` 正确映射到系统 HEIC；壁纸模糊源进一步降到 0.10× 并加大模糊半径；隐藏启动台后销毁全屏 hosting view，闲置约 70–90MB；统一应用启动/前台激活（DeepSeek、极空间、已运行应用）；恢复原菜单与原界面。SHA-256 `09e04d7a…`，CDHash `2f38c216…`；1440p 网格改为填满垂直空间、图标 128pt，翻页触发阈值降低 |
 | build 41 | 启用 CDHash 白名单 + 一次性 nonce attestation：所有 build 的试用/激活/续租必须先向 `/v1/attest/challenge` 取 nonce；Worker 新增 `build_attestations`、`attest_nonces` 与管理员注册接口；编译脚本增加 `__RESTRICT`/Hardened Runtime/entitlement 强制校验，后续构建自动检查 |
 | build 40 | 试用客户端信息采集：设备名、App 版本、build、macOS 版本、架构、语言、机型、CDHash；新增 `/v1/trial/heartbeat` 与管理员 `/v1/admin/trials`；锁定菜单项真正灰色禁用；服务端 lease 改为 24 小时 |
 | build 39 | 安全加固：`__RESTRICT` 段、强化注入检查、CDHash/attestation 字段预留、原生 P-256 lease/trial 校验、Ed25519 更新清单签名 + DMG SHA-256 校验、24 小时在线校验 / 7 天离线宽限 |
@@ -88,7 +88,7 @@
 | build 11 | 双指翻页改为一次手势一页的离散翻页，去掉 0.56 秒时间锁；新手势可立即翻页 |
 | build 10 及以前 | 双槽分页架构、去阴影、壁纸模糊、文件夹面板样式、1.2 悬停、原生 Launchpad 应用过滤、DMG 打包等 |
 
-> 维护约定：每次功能、交互、构建方式或版本号变化，都要同步更新本 README 的“功能 / 使用 / 更新记录 / 当前版本”，并同步 `HANDOFF.md`。
+> 维护约定：每次功能、交互、构建方式或版本号变化，都要同步更新本 README 的“功能 / 使用 / 更新记录 / 当前版本”，并同步 `HANDOFF.md`。迁移到 macOS 15.8 见 `MIGRATION-MACOS15.md`。
 
 ## 运行
 
