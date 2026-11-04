@@ -2,10 +2,12 @@
 
 一个独立实现的 macOS 启动台（Launchpad）应用。用 AppKit + SwiftUI 编写，无第三方运行时依赖，最低支持 **macOS 15.0**，同一构建同时支持 macOS 15/26/27。
 
-> **当前版本：2.2（build 48，2026-11-04）**  
+> **当前版本：2.2（build 46，2026-11-03）**  
 > 视觉和交互参考经典 Launchpad（macOS Sequoia / Tahoe 时代）。本版重点：进入退出旋转动画、翻页百叶窗、双指离散翻页、双槽 60fps 分页、无阴影扁平图标、桌面壁纸毛玻璃、文件夹放大/缩小开关动画、隐藏菜单栏图标、帮助与系统手势冲突提示、虚拟机/无触控板时的快捷键提示，以及四指捏合的 7 天试用/卡密激活/付费墙。
 
 ![启动台](docs/screenshots/01-launchpad.jpg)
+
+下载页顶部提供演示视频预览：<https://download.luyfapp.cn/#demo>。顶部用 HEVC 1080p 预览（H.264 720p 兼容回退）快速起播，点「全屏原画」切换到未压缩的 388MB 原片。
 
 ## 功能
 
@@ -24,7 +26,6 @@
 | 安全删除 | 第三方应用显示删除角标；先弹出玻璃确认卡，确认后移到废纸篓 |
 | 右键菜单 | 打开、在访达中显示、从启动台移除、移到废纸篓、重新排列、刷新 |
 | 持久化 | 页面顺序、文件夹、隐藏应用、启动频次、菜单栏图标显隐写入 UserDefaults |
-| 布局管理 | 菜单栏“自动整理归类”按应用属性建立文件夹，二次确认，不删除/隐藏应用；“导入其他启动器布局…”支持 JSON/plist、LaunchOS SQLite、macOS 原生启动台 db。`.launchos` 是加密备份，需先在 LaunchOS 恢复再导入 SQLite |
 | 菜单栏 | 显示/隐藏、重新排列、刷新、动画（进入退出 / 翻页）、四指捏合开关、购买/授权、开机自启动开关（SMAppService）、隐藏/显示菜单栏图标、系统手势冲突 / 环境不支持提示、帮助、输入监控设置、关于、退出 |
 | 隐藏菜单栏图标 | 菜单里可隐藏；隐藏后启动台左上角出现齿轮按钮，点它打开同一份菜单；菜单里可以“显示菜单栏图标”恢复；快捷键不受影响 |
 | 帮助 | 菜单栏“帮助”或 `launchpad://help` 打开使用说明浮层；`Esc` 或“知道了”关闭 |
@@ -51,13 +52,11 @@
 
 ## 当前版本与更新记录
 
-当前：**2.2 build 48**（2026-11-04，macOS 15+）。build46 布局管理；build47 增加启动设备上报；build48 增加安装级统计，多系统 Mac 一席位、多安装。
+当前：**2.2 build 46**（2026-11-03，macOS 15+）。build 45 已冻结；build 46 重做 pager 交互层。此前旧 45–56 迭代已废弃。
 
 | 构建 | 主要变化 |
 | --- | --- |
-| build 48 | 客户端上报 install_id（启动卷 UUID）；管理页分开展示物理设备/系统安装；多系统 Mac 只占一个授权席位但统计多个安装；上报在启动、build/安装变化时强制触发。SHA-256 `5ecac59478f58b02368256f5a1910a428bf225e986af52956c6cb91b38c5b960`，CDHash `ca0c9312e17bbee45df6f784cb4f8a712a66f815` |
-| build 47 | 客户端每次启动上报设备；管理页合并试用/授权/仅安装设备；修复只统计试用的缺陷。SHA-256 `127dda60…`，CDHash `68131a04…` |
-| build 46 | 菜单栏新增“自动整理归类”和“导入其他启动器布局…”；自动整理按系统工具/网络/效率/媒体/社交/开发/游戏/其他创建文件夹；导入支持 JSON、plist、LaunchOS SQLite 与 macOS 原生启动台 db；整理/导入使用居中自定义模态窗口，文件面板顶部可拖动；修复重复应用名崩溃。SHA-256 `dccf058b…`，CDHash `73674d52…` |
+| build 46 | pager 重做：双指滚动按增量实时移动当前页/相邻页，松手按 16% 位移吸附；不再过阈值直接跳页。保留 build 45 的全屏自适应。SHA-256 `17620363…`，CDHash `f9658b46…` |
 | build 45 | 全屏幕类型自适应：按屏幕点数与横竖屏自动选择 6–10 列、4–8 行；1440p/4K/超宽屏填满垂直空间并放大图标；翻页触发阈值 10、spring 0.30；macOS 15+。SHA-256 `5c4e6760…`，CDHash `dd47d52e…` |
 | build 44 维护版 | 当前发布线：macOS 15.0 最低系统；动态壁纸 `com.apple.wallpaper.choice.sonoma` 正确映射到系统 HEIC；壁纸模糊源进一步降到 0.10× 并加大模糊半径；隐藏启动台后销毁全屏 hosting view，闲置约 70–90MB；统一应用启动/前台激活（DeepSeek、极空间、已运行应用）；恢复原菜单与原界面。SHA-256 `09e04d7a…`，CDHash `2f38c216…`；1440p 网格改为填满垂直空间、图标 128pt，翻页触发阈值降低 |
 | build 41 | 启用 CDHash 白名单 + 一次性 nonce attestation：所有 build 的试用/激活/续租必须先向 `/v1/attest/challenge` 取 nonce；Worker 新增 `build_attestations`、`attest_nonces` 与管理员注册接口；编译脚本增加 `__RESTRICT`/Hardened Runtime/entitlement 强制校验，后续构建自动检查 |
@@ -332,6 +331,3 @@ https://download.luyfapp.cn/update.json
 MIT。App 图标与自定义玻璃界面由项目自行绘制，SF Symbols 由系统提供；不使用 Apple 的 Launchpad 图标资源。应用列表中显示的是本机已安装应用的系统图标。
 
 Apple、macOS、Launchpad 是 Apple Inc. 的商标。本项目与 Apple 无关联。
-
-
-> **旧 pager 候选 build 46 已废弃**：未通过真实触控板验证，已撤回；pager 代码在 `pager-rewrite` 分支。当前 build 46 是布局管理版本，不是该 pager 候选。
